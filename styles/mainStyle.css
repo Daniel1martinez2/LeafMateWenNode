@@ -10,6 +10,18 @@
     width: 30%;
 }
 
-button{
+.form label{
+    color: #1B5332;
+    font-size: 0.8em;
+}
+.form a{
+
+    color: #31A05F;
+}
+.form p{
+    margin-top: 1em;
+}
+.form button{
     margin-top: 5%;
+    width: 50%;
 }
