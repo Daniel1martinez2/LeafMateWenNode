@@ -2,6 +2,78 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    
+    
+}
+
+h1{
+    padding-left: 50px;
+    padding-top: 150px;
+    color: #1B5332;
+    font-weight: bolder;
+    font-size: 38px;
+   
+   
+}
+h2{
+    color: #31A05F;
+    font-weight: bolder;
+   
+   
+}
+
+.sideRect{
+    background-color: #31A05F;
+    float: left;
+    width: 35%;
+    height: 1000px;
+
+}
+
+#plantImg{
+    float: left;
+    padding-top:40px;
+    padding-left: 63px;
+
+}
+
+.description{
+    padding-top: 30px;
+    padding-left: 50px;
+    color:white;
+    font-weight: normal;
+
+
+}
+
+.menu{
+  float: right;
+}
+
+.menu a:hover {
+    color: #31A05F;
+    text-decoration: black;
+  }
+
+.menu a{ 
+    color:black;
+    text-decoration: none;
+    
+    margin-top:15px;
+    float: left;
+    padding-right: 50px;
+    font-weight: lighter;
+   
+}
+
+.libraryPlants{
+    padding-left: 200px;
+    padding-top:200px;
+    display: flex;
+    flex-direction: column;
+}
 
 .form{
     margin-top: 10%;

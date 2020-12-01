@@ -4,8 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library 📚</title>
+    
+    
+    <link rel="stylesheet" href="/styles/mainStyle.css">
 </head>
 <body>
+
     
+    <div class="sideRect">
+        <h1>Library</h1>
+        <p class="description">Here you can find plants for your garden<br> along with their description and care details. <br>Every week we have new plants</p>
+        
+            <img id="plantImg" src="recursos/transPLant.png"> </img>
+        
+        
+    </div>
+
+    
+    <div class="menu">
+        <a href="MyGarden.html">My Garden</a>
+        <a href="Library.html">Library</a>
+    </div>
+
+    <div class="libraryPlants">
+        <h2>Plants</h2>
+        <div id="compPlants">
+            
+        </div>
+
+    
+
+
+    </div>
+    
+    
+
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDx4uHjgarUo7CJo4Ktnw9L0trn0K8EU9w",
+        authDomain: "leafmate-13aba.firebaseapp.com",
+        databaseURL: "https://leafmate-13aba.firebaseio.com",
+        projectId: "leafmate-13aba",
+        storageBucket: "leafmate-13aba.appspot.com",
+        messagingSenderId: "143293031204",
+        appId: "1:143293031204:web:427852a065ec630f1d89b1",
+        measurementId: "G-Y7F45MYSBP"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  <script src="./js/library.js"></script>
+    <script src="./componentes/libComp.js"></script>
 </body>
 </html>
