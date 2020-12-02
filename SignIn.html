@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignIn 🗿</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/mainStyle.css">
 </head>
 <body>
     
+    <div class="form">
+        <div class="logo"></div>
+        <label for="Email">Email</label>
+        <input type="text" id="Email">
+        <label for="Username">Username</label>
+        <input type="text" id="Username">
+        <label for="Password">Password</label>
+        <input type="password" id="Password">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm">
+        <div class="button">
+            <button class="btn btn-success">Submit</button>
+        </div>
+        <p>Do you have an account? <a href="#">Login</a></p>
+    </div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+    <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyDx4uHjgarUo7CJo4Ktnw9L0trn0K8EU9w",
+        authDomain: "leafmate-13aba.firebaseapp.com",
+        databaseURL: "https://leafmate-13aba.firebaseio.com",
+        projectId: "leafmate-13aba",
+        storageBucket: "leafmate-13aba.appspot.com",
+        messagingSenderId: "143293031204",
+        appId: "1:143293031204:web:427852a065ec630f1d89b1",
+        measurementId: "G-Y7F45MYSBP"
+    };
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
+<script src="/js/signIn.js"></script>
 </body>
 </html>
