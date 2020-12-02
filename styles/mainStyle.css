@@ -17,6 +17,12 @@ h1{
    
    
 }
+.svg-example{
+    width: 5em; 
+    height: 5em;
+    background-image: url('/recursos/svg/sun.svg');
+    background-size: cover;
+}
 h2{
     color: #31A05F;
     font-weight: bolder;
