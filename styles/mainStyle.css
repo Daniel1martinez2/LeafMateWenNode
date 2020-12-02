@@ -17,6 +17,9 @@ h1{
    
    
 }
+
+
+  
 .svg-example{
     width: 5em; 
     height: 5em;
@@ -34,8 +37,24 @@ h2{
     background-color: #31A05F;
     float: left;
     width: 35%;
-    height: 1000px;
+    height: 100vh;
+    animation: pulse 5s infinite;
+    position: fixed;
 
+}
+.sideRect h1{
+    color: white;
+}
+.sideRect .imageplant{
+    width: 100%;
+    height: 50%;
+    background-image: url('/recursos/transPLant.png');
+    background-size: cover;
+    position: absolute;
+    bottom:0;
+
+    
+   
 }
 
 #plantImg{
@@ -75,10 +94,14 @@ h2{
 }
 
 .libraryPlants{
-    padding-left: 200px;
-    padding-top:200px;
+   
     display: flex;
     flex-direction: column;
+    position: fixed;
+    width: 40%;
+    left: 40%;
+    top: 20%;
+
 }
 
 .form{
@@ -126,5 +149,15 @@ h2{
     position: absolute;
     right: -10%;
     z-index: -1;
-   
 }
+@keyframes pulse {
+    0% {
+      background-color: #1B5332;
+    }
+    50% {
+      background-color: #31A05F;
+    }
+    100%{
+        background-color: #1B5332;
+    }
+  }
