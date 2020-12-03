@@ -23,6 +23,9 @@ class libComp {
         plantDiv.classList.add("plantDiv");
         plantDiv.innerHTML = this.plantLib.Description;
 
+        const contentInfo = document.createElement('div'); 
+        contentInfo.classList.add('plant-content-info'); 
+
 
         let infoDiv = document.createElement('div');
         infoDiv.classList.add("infoDiv");
@@ -118,12 +121,13 @@ class libComp {
 
 
 
-
-        component.appendChild(plantTitle);
-        component.appendChild(plantDiv);
-        component.appendChild(divIcons);
-        component.appendChild(infoDiv);
-        circleDiv.appendChild(imgDiv);
+        
+        contentInfo.appendChild(plantTitle);
+        contentInfo.appendChild(plantDiv);
+        //component.appendChild(divIcons);
+        contentInfo.appendChild(infoDiv);
+        contentInfo.appendChild(imgDiv);
+        component.appendChild(contentInfo); 
         component.appendChild(circleDiv);
 
 
