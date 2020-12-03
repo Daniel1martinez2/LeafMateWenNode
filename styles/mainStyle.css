@@ -48,6 +48,9 @@ h2{
     height: 100vh;
     animation: pulse 5s infinite;
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 .sideRect h1{
@@ -65,10 +68,14 @@ h2{
    
 }
 
-#plantImg{
-    float: left;
-    padding-top:40px;
-    padding-left: 63px;
+.plantdiv{
+    width: 100%;
+    height: 60%;
+    background-image: url('/recursos/transPLant.png');
+    background-size: cover;
+
+    
+    
 
 }
 
