@@ -7,6 +7,7 @@
     
     
     <link rel="stylesheet" href="/styles/mainStyle.css">
+    <link rel="stylesheet" href="/styles/plant.css">
 </head>
 <body>
 
@@ -14,11 +15,14 @@
     <div class="sideRect">
         <h1>Library</h1>
         <p class="description">Here you can find plants for your garden<br> along with their description and care details. <br>Every week we have new plants</p>
-        <div class="imageplant"></div>        
+        
+            <img id="plantImg" src="recursos/transPLant.png"> </img>
+        
+        
     </div>
     
     <div class="menu">
-      <div class="svg-example"></div>
+      
       <a href="MyGarden.html">My Garden</a>
       <a href="Library.html">Library</a>
     </div>
@@ -27,7 +31,9 @@
         <h2>Plants</h2>
         <div id="compPlants">
             
+            
         </div>
+       
     </div>
     
     
@@ -49,7 +55,7 @@
       };
       firebase.initializeApp(firebaseConfig);
     </script>
-  <script src="./componentes/libComp.js"></script>
   <script src="./js/library.js"></script>
+    <script src="./componentes/libComp.js"></script>
 </body>
 </html>

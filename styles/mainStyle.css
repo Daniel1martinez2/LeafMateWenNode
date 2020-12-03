@@ -20,12 +20,20 @@ h1{
 
 
   
-.svg-example{
-    width: 5em; 
-    height: 5em;
+.svg-sun{
+    width: 20px; 
+    height: 20px;
     background-image: url('/recursos/svg/sun.svg');
     background-size: cover;
 }
+
+.svg-water{
+    width: 10px; 
+    height: 10px;
+    background-image: url('/recursos/svg/water.svg');
+    background-size: cover;
+}
+
 h2{
     color: #31A05F;
     font-weight: bolder;
@@ -97,7 +105,7 @@ h2{
    
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     width: 40%;
     left: 40%;
     top: 20%;

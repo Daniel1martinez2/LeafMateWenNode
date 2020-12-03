@@ -1,0 +1,51 @@
+.comp{
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(245, 139, 114, 0.35);
+    border-radius: 8px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 50px;
+    display: flex;
+}
+
+.plantDiv{
+    flex:1;
+    padding-top:40px;
+    margin-left:-50px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #31A05F;
+}
+.circleDiv{ 
+    margin-top:40px;
+    margin:20px;
+    background-color:rgba(245, 139, 114) ;
+    border-radius: 70px;
+    height: 120px;
+    width:120px;
+    background-image: url('/recursos/cilantro.png');
+    background-size: cover;
+
+}
+
+.imgDiv{
+    
+
+}
+
+.infoDiv{
+    color:rgba(245, 139, 114);
+    font-weight: lighter;
+    font-size: 14px;
+
+}
+
+.plantTitle{
+    color: #1B5332;
+    display:flex;
+    font-weight: bold;
+}
