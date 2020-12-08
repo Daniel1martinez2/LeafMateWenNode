@@ -1,36 +1,61 @@
 const database = firebase.database();
-const garden = document.getElementById('gardenOptions');
+const auth = firebase.auth(); 
+const logOut = document.querySelector('.logout'); 
+const gardenContainer = document.querySelector('.garden'); 
+var currentUserId; 
+auth.onAuthStateChanged(
+    (user)=>{
+        if(user === null){
+            window.location.href= 'Login.html';
+        }else{
+          database.ref('Users/'+user.uid).once('value', (data)=>{
+              let userD = data.val(); 
+              console.log(userD); 
+              //lectura new pro 🥦
+              database.ref('GardenPlants/'+userD.id).on('value', function (elem) {
+                elem.forEach(
+                  lib => {
+                           lib.forEach(
+                               elem => {
+                                console.log(elem.val()); 
+                           //let renderElem =  new MyGardenComp(elem.val());
+                            //gardenContainer.appendChild(renderElem.render());
+                            
+            
+            
+                               }
+            
+                           )
+                           console.log('--------'); 
+                           
+                    }
+                   
+                )
+               
+            
+            });
+          })
+        } 
+    }
+); 
+
+logOut.addEventListener('click', ()=>{
+    auth.signOut().then(
+        ()=>{
+            window.location.href= 'Login.html';
+        }
+    ).catch(
+        (error)=>{
+            alert(error.message); 
+        }
+    ); 
+}); 
+
+
+
 
 
 
 
 
 // Lectura
-database.ref('Library').on('value', function (data) {
-
-    garden.innerHTML = '';
-   
-
-    data.forEach(
-      lib => {
-           
-           
-               lib.forEach(
-                   elem => {
-            
-                let renderElem =  new plantComp(elem.val());
-                
-                garden.appendChild(renderElem.render());
-                
-
-
-                   }
-
-               )
-               
-        }
-       
-    )
-   
-
-});

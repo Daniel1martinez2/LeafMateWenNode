@@ -1,6 +1,6 @@
 const database2 = firebase.database();
 
-class plantComp {
+class addPlantComp {
     constructor(plantLib) {
         this.plantLib = plantLib;
 
@@ -109,6 +109,14 @@ class plantComp {
         }
 
 
+        component.addEventListener('click',()=>{
+           //;-;-;-;-; y ahora khe porque lo de agregar-push al firebase esta en add plant, seria poner eso de alla aca?
+                database2.ref('library/'+this.plantLib.Name);
+                component.classList.add('selected'); 
+                if(component.classList.contains('selected')){
+                    alert(); 
+                }
+            });
 
 
 
@@ -130,7 +138,7 @@ class plantComp {
         component.appendChild(contentInfo); 
         component.appendChild(circleDiv);
 
-
+        
 
         return component;
 

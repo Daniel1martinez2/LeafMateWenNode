@@ -17,8 +17,8 @@ auth.onAuthStateChanged(
                  }
                  database.ref('Users/'+userD.id).set(userD).then(
                      ()=>{
-                         window.location.href= '#'; 
-                         alert('cool'); 
+                         window.location.href= 'MyGarden.html'; 
+
                      }
                  ); 
             }else{

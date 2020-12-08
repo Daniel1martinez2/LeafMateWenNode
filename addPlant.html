@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/mainStyle.css">
+    
     <link rel="stylesheet" href="/styles/plant.css">
-    <link rel="stylesheet" href="/styles/gardenStyle.css">
-    <title>My Garden 🐢</title>
+    <link rel="stylesheet" href="/styles/addPlantStyle.css">
+    <title>add Plant </title>
    
 </head>
 
-<div>
+<div class="new-plant">
+    <button id="cancelBtn">Cancel</button>
+    <div class="menu">
     <p>Name plant</p>
-    <input class="inputPlant" type="text"></input>
-    <button class="plantBtn">Plant it</button>
+    <input id="inputPlant" type="text"></input>
+    <button id="plantBtn">Plant it</button>
+    </div>
 
 </div>
 
@@ -37,7 +40,7 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 
-<script src="./js/garden.js"></script>
-<script src="./componentes/plantComp.js"></script>
+<script src="./js/addplant.js"></script>
+<script src="./componentes/addPlantComp.js"></script>
 </body>
 </html>
