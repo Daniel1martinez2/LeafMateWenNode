@@ -4,15 +4,20 @@ const cancelBtn = document.getElementById('cancelBtn')
 const garden = document.getElementById('gardenOptions');
 const database = firebase.database();
 let fecha;
+let time;
 var seleccionado;
 
 
 plantIt = () => {
     const d=new Date();
+    const hr = d.getHours();
+    const min = d.getMinutes();
+    const sec = d.getSeconds();
     const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
     const mo = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(d);
     const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
     fecha=ye+mo+da;
+    time=hr+min+sec
 
     
     
@@ -32,7 +37,7 @@ plantIt = () => {
                 database.ref('Library/' + newPlant.val().Name).set(
                     {
                 bornDate: fecha,
-                bornTime:"",
+                bornTime:time,
                 id: referencia.key,
                 name: newPlant.val().Name,
                 nextWatter:newPlant.val().Watering,
