@@ -4,11 +4,19 @@ const cancelBtn = document.getElementById('cancelBtn')
 const garden = document.getElementById('gardenOptions');
 const database = firebase.database();
 let fecha;
+var seleccionado;
 
 
 plantIt = () => {
-    fecha=new Date();
-    fechaSplit=fecha.toString().split(" ");
+    const d=new Date();
+    const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+    const mo = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(d);
+    const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+    fecha=ye+mo+da;
+
+    
+    
+    
 
 
     if (inputName.value === '') {
@@ -23,14 +31,17 @@ plantIt = () => {
              newPlant => {
                 database.ref('Library/' + newPlant.val().Name).set(
                     {
+                bornDate: fecha,
+                bornTime:"",
                 id: referencia.key,
-                nickname: inputName.value,
-                type: newPlant.val().Type,
-                sunlight: newPlant.val().Sunlight,
+                name: newPlant.val().Name,
+                nextWatter:newPlant.val().Watering,
+                sunLight: newPlant.val().Sunlight,
                 description:newPlant.val().Description,
-                name:newPlant.val().Name,
-                watering:newPlant.val().Watering,
-                date: fechaSplit[1]+"-"+fechaSplit[2]+"-"+fechaSplit[3],
+                userId:referencia.key,
+                userName:inputName.value,
+                
+                
                     }
                 );
                 }
@@ -39,6 +50,7 @@ plantIt = () => {
     ref.set(newPlant);
     preguntaInput.value = '';
 }
+
 
 
 
@@ -80,3 +92,5 @@ database.ref('Library').on('value', function (data) {
     
     
 });
+
+

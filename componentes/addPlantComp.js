@@ -110,7 +110,6 @@ class addPlantComp {
 
 
         component.addEventListener('click',()=>{
-           //;-;-;-;-; y ahora khe porque lo de agregar-push al firebase esta en add plant, seria poner eso de alla aca?
                 database2.ref('library/'+this.plantLib.Name);
                 component.classList.add('selected'); 
                 if(component.classList.contains('selected')){
