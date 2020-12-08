@@ -15,8 +15,6 @@ plantIt = () => {
         alert("Please name the plant");
         return;
     }
-
-
     let ref = database.ref('GardenPlants').push()
     database.ref('Library').once('value', function (data) {
         data.forEach(
@@ -40,10 +38,6 @@ plantIt = () => {
     preguntaInput.value = '';
 }
 
-
-
-
-
 plantBtn.addEventListener('click', plantIt);
 
 cancel = () =>{
@@ -51,19 +45,15 @@ cancel = () =>{
 }
 
 cancelBtn.addEventListener('click', cancel);
-
 // Lectura
 database.ref('Library').on('value', function (data) {
-    
     garden.innerHTML = '';
     data.forEach(
-        
       lib => {
                lib.forEach(
                    elem => {
                     let renderElem =  new addPlantComp(elem.val());
                     garden.appendChild(renderElem.render());
-
                    }
 
                )
@@ -71,12 +61,5 @@ database.ref('Library').on('value', function (data) {
         }
        
     )
-    let info = garden;  
-    let childrens = info.children; 
-
-    for (let index = 0; index < childrens.length; index++) {
-        console.log(childrens[index].classList.contains('selected')); 
-    }
-    
     
 });

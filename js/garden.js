@@ -50,12 +50,3 @@ logOut.addEventListener('click', ()=>{
         }
     ); 
 }); 
-
-
-
-
-
-
-
-
-// Lectura
