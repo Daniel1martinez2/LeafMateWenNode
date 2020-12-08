@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/mainStyle.css">
+    <link rel="stylesheet" href="/styles/plant.css">
+    <link rel="stylesheet" href="/styles/gardenStyle.css">
+    <title>My Garden 🐢</title>
+   
+</head>
+
+<div>
+    <p>Name plant</p>
+    <input class="inputPlant" type="text"></input>
+    <button class="plantBtn">Plant it</button>
+
+</div>
+
+<div id="gardenOptions">
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDx4uHjgarUo7CJo4Ktnw9L0trn0K8EU9w",
+    authDomain: "leafmate-13aba.firebaseapp.com",
+    databaseURL: "https://leafmate-13aba.firebaseio.com",
+    projectId: "leafmate-13aba",
+    storageBucket: "leafmate-13aba.appspot.com",
+    messagingSenderId: "143293031204",
+    appId: "1:143293031204:web:427852a065ec630f1d89b1",
+    measurementId: "G-Y7F45MYSBP"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="./js/garden.js"></script>
+<script src="./componentes/plantComp.js"></script>
+</body>
+</html>
