@@ -3,7 +3,6 @@ const database2 = firebase.database();
 class addPlantComp {
     constructor(plantLib) {
         this.plantLib = plantLib;
-        this.state = false; 
     }
 
 
@@ -35,7 +34,6 @@ class addPlantComp {
             ` <div class="svg-sun"></div>` +
             this.plantLib.Sunlight
             
-        
         );
 
         let circleDiv = document.createElement('div');

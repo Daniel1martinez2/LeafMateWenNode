@@ -27,17 +27,20 @@ auth.onAuthStateChanged(
               database.ref('GardenPlants/'+userD.id).on('value', function (elem) {
                 gardenContainer.innerHTML = '';
                 elem.forEach(
-                  lib => {
-                           
-                                
+                  lib => {      
                            let renderElem =  new MyGardenComp(lib.val());
                            gardenContainer.appendChild(renderElem.render());
+                           
                            bornTime = lib.val().bornTime;
                            bornDate = lib.val().bornDate;
                            newborn=bornDate+"T"+bornTime;
+                           console.log(renderElem.turnOn); 
+                           ////
+                           let plantName = lib.val().name
+                           const HOURS_TO_SECONDS = 60*60;
+                           let waitSeconds = 2*HOURS_TO_SECONDS;
+                           scheduleNotification(plantName, waitSeconds);
                            calculateAge();
-
-                               
                     }
                 )
             });
@@ -70,51 +73,43 @@ function calculateAge(){
     var dayNow=nowDate.getDate();
     var bornD = new Date(newborn);
     var born = bornD.getDate();
-    var plantAge = dayNow - born;
-    console.log(plantAge);
+    myPlantAge = dayNow - born;
+    console.log(myPlantAge);
     
 }
 
 
+function scheduleNotification(plantName, waitSeconds){
+    
+    var nowDate = new Date();
+    var bornDate = new Date(newborn);
+    var elapsedSeconds = Math.abs(nowDate.getTime() - bornDate.getTime()) / (1000);
+    console.log("elapsedSeconds for " + plantName + " " + elapsedSeconds);
 
-
-
-var now = new Date();
-var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 16, 0, 0) - now;
-if (millisTill10 < 0) {
-     millisTill10 += 86400000; 
+    const SECONDS_TO_MILLISECONDS = 1000;
+    if(elapsedSeconds >= waitSeconds){
+        alert("Water Plant " + plantName);
+    }else{
+        let secondsForAlert = waitSeconds - elapsedSeconds;
+        setTimeout(function() {
+            alert("Water Plant " + plantName);
+        }, secondsForAlert * SECONDS_TO_MILLISECONDS);
+        // setTimeout(function(){openAPage()});
+    }
 }
-setTimeout(function(){alert("Water Plant")}, millisTill10);
-setTimeout(function(){openAPage()}, millisTill10)
+
+
 
 function openAPage() {
 
 
-var gardenWin =  window.location.href= 'addPlant.html';
+var gardenWin =  window.location.href= 'MyGarden.html';
 
 gardenWin.close();
 
 }
 
 
-
-
-
-
-
-
-// function nextWatering(nextWater,bornTime) {
-//     (function loop() {
-//         var now = new Date();
-//         if (now.getDate() === 12 && now.getHours() === 12 && now.getMinutes() === 0) {
-//             water();
-//             alert("Water now")
-//         }
-//         now = new Date();                  
-//         var delay = 60000 - (now % 60000); 
-//         setTimeout(loop, delay);
-//     })();
-// }
 
 
 

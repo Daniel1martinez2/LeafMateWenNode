@@ -2,9 +2,12 @@
 const database2 = firebase.database();
 
 
+
 class MyGardenComp{
     constructor(plant){
         this.plant = plant; 
+        thistory.test = 0;
+        this.turnOn = false;
     }
    
 
@@ -43,6 +46,23 @@ render = () => {
     let waterBtn = document.createElement('button');
     waterBtn.classList.add("waterBtn");
     waterBtn.innerHTML = "Water Plant";
+
+    waterBtn.addEventListener('click',()=>{
+        const d=new Date();
+        const hr = d.getHours();
+        const min = d.getMinutes();
+        let actualTime = hr+":"+min+":00"
+        database2.ref('GardenPlants/'+this.plant.bornTime).set(actualTime);
+
+        
+
+    });
+
+
+
+
+
+
 
     let deleteBtn = document.createElement('button');
     deleteBtn.classList.add("deleteBtn");
