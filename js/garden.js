@@ -26,7 +26,9 @@ auth.onAuthStateChanged(
               //lectura new pro 🥦
               database.ref('GardenPlants/'+userD.id).on('value', function (elem) {
                 gardenContainer.innerHTML = '';
+                let index = 0; 
                 elem.forEach(
+                    
                   lib => {      
                            let renderElem =  new MyGardenComp(lib.val());
                            gardenContainer.appendChild(renderElem.render());
@@ -40,8 +42,15 @@ auth.onAuthStateChanged(
                            const HOURS_TO_SECONDS = 60*60;
                            let waitSeconds = 2*HOURS_TO_SECONDS;
                            scheduleNotification(plantName, waitSeconds);
-                           calculateAge();
+                           //calculateAge(); 
+                          // const ageTest = gardenContainer.firstChild.querySelector('.plantDiv'); 
+                            var nodes = gardenContainer.childNodes;
+                            const age = nodes[index].querySelector('.plantDiv'); 
+                            age.innerHTML = calculateAge(); 
+                          // ageTest.innerHTML =calculateAge(); 
+                          index ++; 
                     }
+                   
                 )
             });
           })
@@ -74,8 +83,8 @@ function calculateAge(){
     var bornD = new Date(newborn);
     var born = bornD.getDate();
     myPlantAge = dayNow - born;
-    console.log(myPlantAge);
-    
+   // console.log(myPlantAge + " days");  
+    return  myPlantAge + " days"; 
 }
 
 

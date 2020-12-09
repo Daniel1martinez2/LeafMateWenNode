@@ -6,8 +6,6 @@ const database2 = firebase.database();
 class MyGardenComp{
     constructor(plant){
         this.plant = plant; 
-        thistory.test = 0;
-        this.turnOn = false;
     }
    
 
@@ -52,10 +50,8 @@ render = () => {
         const hr = d.getHours();
         const min = d.getMinutes();
         let actualTime = hr+":"+min+":00"
-        database2.ref('GardenPlants/'+this.plant.bornTime).set(actualTime);
-
+        database2.ref(`GardenPlants/${this.plant.userId}/${this.plant.id}/bornTime`).set(actualTime);
         
-
     });
 
 
