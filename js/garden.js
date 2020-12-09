@@ -53,18 +53,6 @@ logOut.addEventListener('click', ()=>{
 
 
 
-function nextWatering(water) {
-    (function loop() {
-        var now = new Date();
-        if (now.getDate() === 12 && now.getHours() === 12 && now.getMinutes() === 0) {
-            water();
-            alert("Water now")
-        }
-        now = new Date();                  
-        var delay = 60000 - (now % 60000); 
-        setTimeout(loop, delay);
-    })();
-}
 
 
 
