@@ -32,12 +32,11 @@ auth.onAuthStateChanged(
                 const d=new Date();
                 const hr = d.getHours();
                 const min = d.getMinutes();
-                const sec = d.getSeconds();
                 const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
                 const mo = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(d);
                 const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
-                fecha=ye+mo+da;
-                time=hr+min+sec
+                fecha=ye+"-"+mo+"-"+da;
+                time=hr+":"+min+":"+"00";
             
                 if (inputName.value.trim() === '') {
                     alert("Please name the plant");
@@ -60,7 +59,7 @@ auth.onAuthStateChanged(
                                 nextWatter:actualPlant.Watering,
                                 sunLight: actualPlant.Sunlight,
                                 type:actualPlant.Type,
-                                userId:ref.key,
+                                userId:userD.id,
                                 userName:inputName.value,
                                     }
 
@@ -75,6 +74,7 @@ auth.onAuthStateChanged(
                 }); 
                 
                 inputName.value = '';
+                window.location.href= 'MyGarden.html'; 
                 //<------
                
             }); 

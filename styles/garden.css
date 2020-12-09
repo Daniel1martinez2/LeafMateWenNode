@@ -41,9 +41,51 @@
         max-width: fit-content;
 }
 
+.comp .deleteBtn{
+    
+        border: none;
+        cursor: pointer;
+        background-color: #F58B72;
+        color: white;
+        font: inherit;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+      
+        height: fit-content;
+    
+}
+.comp .waterBtn{
+    
+    border: none;
+    cursor: pointer;
+    background-color: #F58B72;
+    color: white;
+    font: inherit;
+    padding: 0.5em;
+    border-radius: 4px;
+    height: fit-content;
+
+}
+
+.nextWatering{
+    font-weight: 300;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #F58B72; 
+    padding:5px;
+    width: max-content;
+    height: max-content;
+    color: #31A05F;
+}
+
+.buttonsDiv{
+    display: flex;
+    
+   
 
 
-
+}
 
 .garden{
     color: #1B5332;
@@ -73,6 +115,8 @@
 .plant-content-info{
     width: 60%;
     display: grid;
+    margin-top: 20px;
+    margin-left: 5px;
 
 
  

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Garden 🐢</title>
     <link rel="stylesheet" href="/styles/mainStyle.css">
-    <link rel="stylesheet" href="/styles/plant.css">
+    <link rel="stylesheet" href="/styles/garden.css">
+
 </head>
 <body>
     <div class="sideRect">
@@ -21,7 +22,11 @@
         <a href="MyGarden.html">My Garden</a>
         <a href="Library.html">Library</a>
       </div>
+
       <div class="garden">
+        <button class="newPlantBtn">+ Add Plant</button>
+       
+        <div class="myPlants"></div>
         
       </div>
       <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
@@ -39,7 +44,10 @@
       };
       firebase.initializeApp(firebaseConfig);
     </script>
+
+   
     <script src="/componentes/myGardenComp.js"></script>
     <script src="/js/garden.js"></script>
+    
 </body>
 </html>
