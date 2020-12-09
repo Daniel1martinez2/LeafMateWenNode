@@ -3,7 +3,7 @@ const database2 = firebase.database();
 class addPlantComp {
     constructor(plantLib) {
         this.plantLib = plantLib;
-
+        this.state = false; 
     }
 
 
@@ -108,16 +108,38 @@ class addPlantComp {
                 break;
         }
 
+        
+        if(this.plantLib.state){
 
+            component.classList.add('selected');
+               
+        }else{
+            component.classList.remove('selected'); 
+    
+        } 
+        
         component.addEventListener('click',()=>{
-                database2.ref('library/'+this.plantLib.Name);
-                component.classList.add('selected'); 
-                if(component.classList.contains('selected')){
-                    alert(); 
-                }
-            });
+            this.state = !this.state; 
+            database.ref('Library').once('value',(data)=>{
+                data.forEach(typeElem => {
+                    typeElem.forEach((kindElem)=>{
+                        let currentPlant = kindElem.val(); 
+                        database.ref('Library/'+currentPlant.Type +'/'+currentPlant.Name ).update({
+                            state: false
+                        }); 
+                    }); 
+                });
+                database.ref('Library/'+this.plantLib.Type +'/'+this.plantLib.Name ).update({
+                    state: true
+                });
+               
+            }); 
+            
+            //---
+            
+        });
 
-
+        
 
 
         let divIcons = document.createElement('div');
