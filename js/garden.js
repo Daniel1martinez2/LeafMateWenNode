@@ -6,10 +6,14 @@ const gardenContainer = document.querySelector('.myPlants');
 
 
 var currentUserId; 
-let nextWater;
+var nextWater;
 let bornTime;
 let bornDate ;
 let newborn;
+let splitWater;
+var infoWater;
+let waterState=false;
+let innerwater;
 var myPlantAge;
 
 
@@ -36,15 +40,47 @@ auth.onAuthStateChanged(
                            bornTime = lib.val().bornTime;
                            bornDate = lib.val().bornDate;
                            newborn=bornDate+"T"+bornTime;
-                           console.log(renderElem.turnOn); 
+                           splitWater = lib.val().nextWatter;
+                           infoWater=splitWater.split(" ");
+                           nWater=parseInt(infoWater[0]);
+                           
+                          
+                           
                            ////
-                           let plantName = lib.val().name
+                           let plantName = lib.val().userName
                            const HOURS_TO_SECONDS = 60*60;
-                           let waitSeconds = 500;
+                           let waitSeconds = 2*HOURS_TO_SECONDS;
+
+
+
+
+
                            scheduleNotification(plantName, waitSeconds);
                             var nodes = gardenContainer.childNodes;
                             const age = nodes[index].querySelector('.plantDiv'); 
                             age.innerHTML = calculateAge(); 
+                            const next = nodes[index].querySelector('.nextWatering');
+                            nextWatering(next);
+                            
+                            const waterBtn = nodes[index].querySelector('.waterBtn'); 
+                            const component = nodes[index]; 
+
+                            if(waterState==true){
+                                
+                                    waterBtn.style.display="block";
+                                  
+                                }else{
+                                    waterBtn.style.display="none";
+                        
+                                } 
+
+                                waterBtn.addEventListener('click',()=>{
+                                    waterState=false;
+
+                                });
+                                
+
+                            
                             index ++; 
                     }
                    
@@ -54,6 +90,8 @@ auth.onAuthStateChanged(
         } 
     }
 ); 
+
+
 
 logOut.addEventListener('click', ()=>{
     auth.signOut().then(
@@ -74,6 +112,33 @@ addPlantBtn.addEventListener('click', ()=>{
 
 
 
+
+function nextWatering(innerWater){
+   
+    window.setInterval(function () {
+        
+        var date = new Date();
+        
+        if ((date.getMinutes() % 1) == 0) {
+    
+            nWater-=1;
+            if(nWater<=0){
+                nWater=parseInt(infoWater[0]);
+            }
+            innerWater.innerHTML="Next Watering "+nWater+"h";
+            
+        }
+    }, 36000);
+    
+        
+     
+}
+
+
+
+
+
+
 function calculateAge(){
     var nowDate = new Date();
     var dayNow=nowDate.getDate();
@@ -82,6 +147,10 @@ function calculateAge(){
     myPlantAge = dayNow - born;
     return  myPlantAge + " days"; 
 }
+
+
+
+
 
 
 function scheduleNotification(plantName, waitSeconds){
@@ -94,10 +163,12 @@ function scheduleNotification(plantName, waitSeconds){
     const SECONDS_TO_MILLISECONDS = 1000;
     if(elapsedSeconds >= waitSeconds){
         alert("Water Plant " + plantName);
+        
     }else{
         let secondsForAlert = waitSeconds - elapsedSeconds;
         setTimeout(function() {
             alert("Water Plant " + plantName);
+            waterState=true;
         }, secondsForAlert * SECONDS_TO_MILLISECONDS);
         setTimeout(function(){openAPage()}, secondsForAlert * SECONDS_TO_MILLISECONDS);
     }

@@ -20,7 +20,7 @@ render = () => {
 
     let plantTitle = document.createElement('p');
     plantTitle.className = "plantTitle"
-    plantTitle.innerHTML = this.plant.name;
+    plantTitle.innerHTML = this.plant.userName;
 
     let plantDiv = document.createElement('p');
     plantDiv.classList.add("plantDiv");
@@ -69,14 +69,7 @@ render = () => {
     nextWatering.classList.add("nextWatering");
     nextWatering.innerHTML = "Next Watering";
     
-        // if(){
-
-        //     component.classList.add('waterBtn');
-                
-        // }else{
-        //     component.classList.remove('waterBtn'); 
-
-        // } 
+      
     
 
 
@@ -180,7 +173,7 @@ render = () => {
     contentInfo.appendChild(plantDiv);
     contentInfo.appendChild(infoDiv);
     circleDiv.appendChild(imgDiv);
-    contentInfo.appendChild(circleDiv);
+    component.appendChild(circleDiv);
   
     component.appendChild(contentInfo); 
     component.appendChild(buttonsDiv); 
