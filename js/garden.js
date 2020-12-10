@@ -40,15 +40,12 @@ auth.onAuthStateChanged(
                            ////
                            let plantName = lib.val().name
                            const HOURS_TO_SECONDS = 60*60;
-                           let waitSeconds = 2*HOURS_TO_SECONDS;
+                           let waitSeconds = 500;
                            scheduleNotification(plantName, waitSeconds);
-                           //calculateAge(); 
-                          // const ageTest = gardenContainer.firstChild.querySelector('.plantDiv'); 
                             var nodes = gardenContainer.childNodes;
                             const age = nodes[index].querySelector('.plantDiv'); 
                             age.innerHTML = calculateAge(); 
-                          // ageTest.innerHTML =calculateAge(); 
-                          index ++; 
+                            index ++; 
                     }
                    
                 )
@@ -83,7 +80,6 @@ function calculateAge(){
     var bornD = new Date(newborn);
     var born = bornD.getDate();
     myPlantAge = dayNow - born;
-   // console.log(myPlantAge + " days");  
     return  myPlantAge + " days"; 
 }
 
@@ -103,7 +99,7 @@ function scheduleNotification(plantName, waitSeconds){
         setTimeout(function() {
             alert("Water Plant " + plantName);
         }, secondsForAlert * SECONDS_TO_MILLISECONDS);
-        // setTimeout(function(){openAPage()});
+        setTimeout(function(){openAPage()}, secondsForAlert * SECONDS_TO_MILLISECONDS);
     }
 }
 

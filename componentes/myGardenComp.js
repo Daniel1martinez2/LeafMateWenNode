@@ -68,6 +68,17 @@ render = () => {
     let nextWatering = document.createElement('p');
     nextWatering.classList.add("nextWatering");
     nextWatering.innerHTML = "Next Watering";
+    
+        // if(){
+
+        //     component.classList.add('waterBtn');
+                
+        // }else{
+        //     component.classList.remove('waterBtn'); 
+
+        // } 
+    
+
 
     let buttonsDiv = document.createElement('div');
     buttonsDiv.className = "buttonsDiv";
@@ -153,15 +164,7 @@ render = () => {
         
         });
     
-    // if(){
-
-    //     component.classList.add('waterBtn');
-           
-    // }else{
-    //     component.classList.remove('waterBtn'); 
-
-    // } 
-    
+   
    
     
     
